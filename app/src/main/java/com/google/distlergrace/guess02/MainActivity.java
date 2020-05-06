@@ -55,12 +55,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //Widget References
-        editTextGuessInput  = (EditText) findViewById(R.id.editTextGuessInput);
-        buttonCalculate     = (Button)   findViewById(R.id.buttonCalculate);
-        buttonNewGame       = (Button)   findViewById(R.id.buttonNewGame);
-        buttonRank          = (Button)   findViewById(R.id.buttonRank);
-        buttonTotals        = (Button)   findViewById(R.id.buttonTotals);
-        textViewResults     = (TextView) findViewById(R.id.textViewResults);
+        editTextGuessInput  = findViewById(R.id.editTextGuessInput);
+        buttonCalculate     = findViewById(R.id.buttonCalculate);
+        buttonNewGame       = findViewById(R.id.buttonNewGame);
+        buttonRank          = findViewById(R.id.buttonRank);
+        buttonTotals        = findViewById(R.id.buttonTotals);
+        textViewResults     = findViewById(R.id.textViewResults);
 
         //Initialize Global Variables
         attempts        = 0;
@@ -118,21 +118,21 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Create A Bundle Object
-                Bundle extras = new Bundle();
+                Bundle rankExtras = new Bundle();
 
                 //Add 'Wows', 'Avgs', & 'Novs' To Bundle
-                extras.putInt("totalWows", totalWows);
-                extras.putInt("totalAvgs", totalAvgs);
-                extras.putInt("totalNovs", totalNovs);
+                rankExtras.putInt("totalWows", totalWows);
+                rankExtras.putInt("totalAvgs", totalAvgs);
+                rankExtras.putInt("totalNovs", totalNovs);
 
                 //Create & Initialize Intent
-                Intent intent =  new Intent(getApplicationContext(),GameTotalsActivity.class);
+                Intent totalsIntent =  new Intent(getApplicationContext(),GameTotalsActivity.class);
 
                 //Attach Bundle To Intent
-                intent.putExtras(extras);
+                totalsIntent.putExtras(rankExtras);
 
                 //Start The Activity
-                startActivity(intent);
+                startActivity(totalsIntent);
             }
         });
 
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity
         {
             ++totalAvgs;
         }
-        else if (attempts > AVGGUESSMAX)
+        else
         {
             ++totalNovs;
         }

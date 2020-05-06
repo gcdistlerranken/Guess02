@@ -28,26 +28,26 @@ public class GameTotalsActivity extends AppCompatActivity
         textViewTotals      = findViewById(R.id.textViewResults);
         buttonReturnHome    = findViewById(R.id.buttonReturnHome);
 
-        totalWows   = 0;
-        totalAvgs   = 0;
-        totalNovs   = 0;
+        //totalWows   = 0;
+        //totalAvgs   = 0;
+        //totalNovs   = 0;
 
-        Intent intent = getIntent();
-        Bundle totalExtras  = intent.getExtras();
+        Intent totalsIntent = getIntent();
+        Bundle rankExtras  = totalsIntent.getExtras();
 
-        if (totalExtras != null)
+        if (rankExtras != null)
         {
-            if (totalExtras.containsKey("totalWows"))
+            if (rankExtras.containsKey("totalWows"))
             {
-                totalWows = totalExtras.getInt("totalWows", 0);
+                totalWows = rankExtras.getInt("totalWows", 0);
             }
-            if (totalExtras.containsKey("totalAvgs"))
+            if (rankExtras.containsKey("totalAvgs"))
             {
-                totalAvgs = totalExtras.getInt("totalAvgs", 0);
+                totalAvgs = rankExtras.getInt("totalAvgs", 0);
             }
-            if (totalExtras.containsKey("totalNovs"))
+            if (rankExtras.containsKey("totalNovs"))
             {
-                totalNovs = totalExtras.getInt("totalNovs", 0);
+                totalNovs = rankExtras.getInt("totalNovs", 0);
             }
 
             result  = "\nTotal WOWs: " + totalWows.toString() + "\n";
