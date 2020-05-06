@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity
     int numberOfGames;
     boolean keepGoing;
     boolean activeGame;
-    static int totalWows;
-    static int totalAvgs;
-    static int totalNovs;
+    int totalWows;
+    int totalAvgs;
+    int totalNovs;
 
 
     @Override
@@ -118,18 +118,18 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Create A Bundle Object
-                Bundle totalExtras = new Bundle();
+                Bundle extras = new Bundle();
 
                 //Add 'Wows', 'Avgs', & 'Novs' To Bundle
-                totalExtras.putInt("totalWows", totalWows);
-                totalExtras.putInt("totalAvgs", totalAvgs);
-                totalExtras.putInt("totalNovs", totalNovs);
+                extras.putInt("totalWows", totalWows);
+                extras.putInt("totalAvgs", totalAvgs);
+                extras.putInt("totalNovs", totalNovs);
 
                 //Create & Initialize Intent
                 Intent intent =  new Intent(getApplicationContext(),GameTotalsActivity.class);
 
                 //Attach Bundle To Intent
-                intent.putExtras(totalExtras);
+                intent.putExtras(extras);
 
                 //Start The Activity
                 startActivity(intent);
@@ -229,9 +229,9 @@ public class MainActivity extends AppCompatActivity
         {
             textViewResults.setText("You Guessed The Secret Number (" + randomNumber +
                                     " In " + attempts + " Guesses");
+            incrementAppropriateCounter();
             activeGame = false;
             keepGoing = false;
-            incrementAppropriateCounter();
             buttonRank.setEnabled(true);
             newGame();
         }

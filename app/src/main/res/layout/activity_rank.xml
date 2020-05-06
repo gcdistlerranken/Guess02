@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#56D5E6"
+    android:background="#A8DEE9"
     tools:context=".RankActivity">
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/textViewTitleForRankLevel"
         android:textAlignment="center"
+        android:textColor="#20268F"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
